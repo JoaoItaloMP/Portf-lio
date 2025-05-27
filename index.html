@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>João Italo DEV | Full Stack Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="htpps://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+     <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo">Testes <span>.dev</span></a>
+
+                <!-- Desktop Navigation -->
+                <div class="nav-links">
+                    <button onclick="scrollToSection('home')" class="nav-link">Home</button>
+                    <button onclick="scrollToSection('about')" class="nav-link">Sobre</button>
+                    <button onclick="scrollToSection('skills')" class="nav-link">Habilidades</button>
+                    <button onclick="scrollToSection('projects')" class="nav-link">Projetos</button>
+                    <button onclick="scrollToSection('contact')" class="nav-link">Contatos</button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                 <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                 </button>
+
+                 <div class="mobile-menu" id="mobileMenu">
+                    <button onclick="scrollToSection('home')" class="mobile-nav-link">Home</button>
+                    <button onclick="scrollToSection('about')" class="mobile-nav-link">Sobre</button>
+                    <button onclick="scrollToSection('skills')" class="mobile-nav-link">Habilidades</button>
+                    <button onclick="scrollToSection('projects')" class="mobile-nav-link">Projetos</button>
+                    <button onclick="scrollToSection('contact')" class="mobile-nav-link">Contatos</button>
+                 </div>
+            </nav>
+        </div>
+     </header>
+
+    <script src="script.js"></script>
+</body>
+</html>
