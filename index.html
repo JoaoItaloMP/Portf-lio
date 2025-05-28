@@ -12,7 +12,7 @@
 </head>
 <body>
     <!-- Header -->
-     <header class="header">
+    <header class="header">
         <div class="container">
             <nav class="nav">
                 <a href="#" class="logo">Testes <span>.dev</span></a>
@@ -40,8 +40,98 @@
                  </div>
             </nav>
         </div>
-     </header>
+    </header>
 
-    <script src="script.js"></script>
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text animate-left">
+                        <h1>Olá, eu sou <spam class="text-primary">Test Dev</spam></h1>
+                        <h2>Full Stack Developer</h2>
+                        <p>
+                            Eu crio experiências digitais...(Seu comentario)
+                        </p>
+                        <div class="hero-buttons">
+                            <button class="primary-btn" onclick="scrollToSection('projects')">
+                                Veja meu trabalho
+                            </button>
+                            <button class="outline-btn" onclick="scrollToSection('contact')">
+                                Entre em contato comigo
+                            </button>
+                        </div>
+
+                        <!-- Midias -->
+                        <div class="social-links">
+                            <a href="https://github.com/JoaoItaloMP" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="mailto:mastedhd@gmail.com">
+                                <i class="fab fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hero-image animate-right">
+                        <div class="image-container">
+                            <img src="https://img.freepik.com/vetores-gratis/laptop-com-icone-de-codigo-isometrico-de-programa-desenvolvimento-de-software-e-aplicacoes-de-programacao-neon-escuro_39422-971.jpg"
+                            alt="Teste Dev - Full Stack Developer"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- About Section -->
+        <section id="about" class="about-section">
+
+        </section>
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section">
+
+        </section>
+        <!-- Projects Section-->
+        <section id="projects" class="projects-section">
+
+        </section>
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+
+    </footer>
+
+    <!-- Scrool to Top Button -->
+    <button class="scroll-top-btn" id="scrollToTopBtn">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <div class="toast-content">
+            <div class="toast-icon sucess">
+                <i class="fas fa-check"></i>
+            </div>
+
+            <div class="toast-message-container">
+                <div class="toast-title">Sucesso</div>
+                <div class="toast-message">Sua mensagem foi enviada com sucesso!</div>
+            </div>
+
+            <button class="toast-close" onclick="closeToast()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
 </body>
 </html>
