@@ -1,139 +1,286 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>João Italo DEV | Full Stack Developer</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teste Dev | Full Stack Developer</title>
+  <meta name="description" content="Professional portfolio of John Doe, a Full Stack Developer specializing in modern web technologies and user-centered design.">
+  <meta property="og:title" content="John Doe | Full Stack Developer">
+  <meta property="og:description" content="Professional portfolio of John Doe, a Full Stack Developer specializing in modern web technologies and user-centered design.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://johndoe.dev">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <nav class="nav">
-                <a href="#" class="logo">Testes <span>.dev</span></a>
-
-                <!-- Desktop Navigation -->
-                <div class="nav-links">
-                    <button onclick="scrollToSection('home')" class="nav-link">Home</button>
-                    <button onclick="scrollToSection('about')" class="nav-link">Sobre</button>
-                    <button onclick="scrollToSection('skills')" class="nav-link">Habilidades</button>
-                    <button onclick="scrollToSection('projects')" class="nav-link">Projetos</button>
-                    <button onclick="scrollToSection('contact')" class="nav-link">Contatos</button>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                 <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                    <i class="fas fa-bars"></i>
-                 </button>
-
-                 <div class="mobile-menu" id="mobileMenu">
-                    <button onclick="scrollToSection('home')" class="mobile-nav-link">Home</button>
-                    <button onclick="scrollToSection('about')" class="mobile-nav-link">Sobre</button>
-                    <button onclick="scrollToSection('skills')" class="mobile-nav-link">Habilidades</button>
-                    <button onclick="scrollToSection('projects')" class="mobile-nav-link">Projetos</button>
-                    <button onclick="scrollToSection('contact')" class="mobile-nav-link">Contatos</button>
-                 </div>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero-section">
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-text animate-left">
-                        <h1>Olá, eu sou <span class="text-primary">Test Dev</span></h1>
-                        <h2>Full Stack Developer</h2>
-                        <p>
-                            Eu crio experiências digitais...(Seu comentario)
-                        </p>
-                        <div class="hero-buttons">
-                            <button class="primary-btn" onclick="scrollToSection('projects')">
-                                Veja meu trabalho
-                            </button>
-                            <button class="outline-btn" onclick="scrollToSection('contact')">
-                                Entre em contato comigo
-                            </button>
-                        </div>
-
-                        <!-- Midias -->
-                        <div class="social-links">
-                            <a href="https://github.com/JoaoItaloMP" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="mailto:mastedhd@gmail.com">
-                                <i class="fab fa-envelope"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="hero-image animate-right">
-                        <div class="image-container">
-                            <img src="https://img.freepik.com/vetores-gratis/laptop-com-icone-de-codigo-isometrico-de-programa-desenvolvimento-de-software-e-aplicacoes-de-programacao-neon-escuro_39422-971.jpg"
-                            alt="Teste Dev - Full Stack Developer"/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <!-- Cabeçalho principal com links para navegação e menu mobile --> 
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="#" class="logo">Teste<span>.dev</span></a>
         
-        <!-- About Section -->
-        <section id="about" class="about-section">
-
-        </section>
-        <!-- Skills Section -->
-        <section id="skills" class="skills-section">
-
-        </section>
-        <!-- Projects Section-->
-        <section id="projects" class="projects-section">
-
-        </section>
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section">
-
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-
-    </footer>
-
-    <!-- Scrool to Top Button -->
-    <button class="scroll-top-btn" id="scrollToTopBtn">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- Toast Notification -->
-    <div id="toast" class="toast">
-        <div class="toast-content">
-            <div class="toast-icon sucess">
-                <i class="fas fa-check"></i>
-            </div>
-
-            <div class="toast-message-container">
-                <div class="toast-title">Sucesso</div>
-                <div class="toast-message">Sua mensagem foi enviada com sucesso!</div>
-            </div>
-
-            <button class="toast-close" onclick="closeToast()">
-                <i class="fas fa-times"></i>
-            </button>
+        <!-- Menu que aparece em telas maiores -->
+        <!-- Desktop Navigation -->
+        <div class="nav-links">
+          <button onclick="scrollToSection('home')" class="nav-link">Home</button>
+          <button onclick="scrollToSection('about')" class="nav-link">Sobre</button>
+          <button onclick="scrollToSection('skills')" class="nav-link">Habilidades</button>
+          <button onclick="scrollToSection('projects')" class="nav-link">Projetos</button>
+          <button onclick="scrollToSection('contact')" class="nav-link">Contato</button>
         </div>
+            
+        <!-- Botão que aparece no celular para abrir o menu hamburguer -->
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+      
+      <!-- Menu que aparece no celular quando clica no ícone -->
+      <!-- Mobile Navigation -->
+      <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-links">
+            <!-- Os mesmos botões, mas versão mobile -->
+          <button onclick="scrollToSection('home')" class="mobile-nav-link">Home</button>
+          <button onclick="scrollToSection('about')" class="mobile-nav-link">Sobre</button>
+          <button onclick="scrollToSection('skills')" class="mobile-nav-link">Habilidades</button>
+          <button onclick="scrollToSection('projects')" class="mobile-nav-link">Projetos</button>
+          <button onclick="scrollToSection('contact')" class="mobile-nav-link">Contato</button>
+      </div>
     </div>
+  </header>
 
+  <main>
+    <!-- Seção principal (hero) com minha apresentação -->
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text animate-left">
+            <!-- Aqui me apresento como dev -->
+            <h1>Olá, eu sou <span class="text-primary">João Italo</span></h1>
+            <h2>Full Stack Developer</h2>
+            <p>
+                Eu crio experiências digitais excepcionais que são rápidas, acessíveis e projetadas com a experiência do usuário em primeiro lugar.
+            </p>
+            <!-- Botões que rolam para seções específicas -->
+            <div class="hero-buttons">
+              <button class="primary-btn" onclick="scrollToSection('projects')">
+                Veja meu trabalho
+              </button>
+              <button class="outline-btn" onclick="scrollToSection('contact')">
+                Entre em contato comigo
+              </button>
+            </div>
+            
+            <!-- Links das minhas redes (GitHub, LinkedIn, etc) -->
+            <div class="social-links">
+              <a href="https://github.com/JoaoItaloMP" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="mailto:mastedhd@gmail.com">
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Minha imagem em estilo anime (ficou estilosa 😎) -->
+          <div class="hero-image animate-right">
+            <div class="image-container">
+              <img 
+                src="img/retrato-anime.png" 
+                alt="Teste Dev - Full Stack Developer" width="15%"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção "Sobre mim" onde eu conto um pouco da minha trajetória na área de desenvolvimento -->
+    <!-- About Section -->
+    <section id="about" class="about-section">
+      <div class="container">
+
+        <!-- Seção "Sobre mim" onde eu conto um pouco da minha trajetória na área de desenvolvimento -->
+        <h2 class="section-title">Sobre mim</h2>
+        
+        <div class="about-content">
+
+            <!-- Aqui eu escrevi um resumo da minha jornada como dev -->
+          <div class="about-text animate-item">
+            <h3>Minha jornada</h3>
+            <p>
+                Sou um desenvolvedor full stack que ama oque faz, tenho cerca de 2 anos de experiência no desenvolvimento de aplicações web que resolvem problemas do mundo real. Minha jornada no desenvolvimento de software começou durante meus estudos em analise e desenvolvimento de sistemas, onde me apaixonei pela criação de soluções digitais.
+            </p>
+            <p>
+                Sou especialista em ecossistemas JavaScript, e tenho experiência com tecnologias de back-end modernas. Meu compromisso é escrever código limpo e sustentável, além de aprender constantemente novas tecnologias.
+            </p>
+            <p>
+                Quando não estou programando, você pode me encontrar realizando alguns dos meus hobbies, lendo blogs ou livros relacionados a tecnologia ou fazendo estudando mais sobre.
+            </p>
+
+            <!-- Um link que futuramente posso usar pra redirecionar pra um PDF do meu currículo ou página de detalhes -->
+            <a href="#" class="text-link">
+                Saiba mais sobre minha experiência
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+          
+          <!-- Esses "cards" são as áreas que eu domino, tipo um resumo das minhas especialidades -->
+          <div class="about-features">
+            <div class="feature-card animate-item">
+              <div class="feature-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <h4>Desenvolvimento Web</h4>
+              <p>Construindo aplicações web responsivas e acessíveis com frameworks modernos</p>
+            </div>
+            
+            <div class="feature-card animate-item">
+              <div class="feature-icon">
+                <i class="fas fa-mobile-alt"></i>
+              </div>
+              <h4>Mobile</h4>
+              <p>Criação de aplicativos que funcionam perfeitamente em todos os tamanhos de dispositivos</p>
+            </div>
+            
+            <div class="feature-card animate-item">
+              <div class="feature-icon">
+                <i class="fas fa-database"></i>
+              </div>
+              <h4>Back End</h4>
+              <p>Projetando e implementando soluções robustas do lado do servidor</p>
+            </div>
+            
+            <div class="feature-card animate-item">
+              <div class="feature-icon">
+                <i class="fas fa-paint-brush"></i>
+              </div>
+              <h4>UI/UX Design</h4>
+              <p>Creating intuitive, visually appealing user experiences</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção das minhas habilidades técnicas e tecnologias que tenho contato -->
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+      <div class="container">
+        <h2 class="section-title">Minhas Habilidades</h2>
+        
+        <div class="skills-content">
+          <!-- Technical Skills -->
+          <div class="technical-skills animate-item">
+            <h3>Habilidades técnicas</h3>
+            
+             <!-- Percentuais são apenas estimativas minhas, baseadas no quanto tenho usado ou estudado -->
+            <div class="skill-item">
+              <div class="skill-header">
+                <span>JavaScript / TypeScript</span>
+                <span>60%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress" style="width: 60%;"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-header">
+                <span>React & Redux</span>
+                <span>15%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress" style="width: 15%;"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-header">
+                <span>Node.js & Express</span>
+                <span>15%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress" style="width: 15%;"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-header">
+                <span>HTML5 & CSS3</span>
+                <span>96%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress" style="width: 96%;"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-header">
+                <span>SQL & NoSQL Databases</span>
+                <span>55%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress" style="width: 55%;"></div>
+              </div>
+            </div>
+          </div>
+          
+           <!-- Percentuais são apenas estimativas minhas, baseadas no quanto tenho usado ou estudado -->
+          <!-- Technologies -->
+          <div class="technologies animate-item">
+            <h3>Tecnologias</h3>
+            
+            <div class="tech-grid">
+              <div class="tech-card">
+                <i class="fab fa-react"></i>
+                <span>React</span>
+              </div>
+              
+              <div class="tech-card">
+                <i class="fab fa-node-js"></i>
+                <span>Node.js</span>
+              </div>
+              
+              <div class="tech-card">
+                <i class="fab fa-js"></i>
+                <span>JavaScript</span>
+              </div>
+              
+              <div class="tech-card">
+                <i class="fab fa-html5"></i>
+                <span>HTML5</span>
+              </div>
+              
+              <div class="tech-card">
+                <i class="fab fa-css3-alt"></i>
+                <span>CSS3</span>
+              </div>
+              
+              <div class="tech-card">
+                <i class="fab fa-git-alt"></i>
+                <span>Git</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!--Conecta com o arquivo JS-->
     <script src="script.js"></script>
-</body>
+
+  </body>
 </html>
