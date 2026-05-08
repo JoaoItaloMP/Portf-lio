@@ -177,33 +177,41 @@ function isValidEmail(email) {
 
 // Mostra aquele "toast" de mensagem que aparece no canto da tela
 // Show toast notification
+// Função para exibir uma mensagem toast na tela
 function showToast(type, title, message) {
-  const toastIcon = document.querySelector('.toast-icon');
+
+  // Seleciona o container principal do toast
+  const toast = document.getElementById('toast');
+
+  // Seleciona os elementos internos (texto)
   const toastTitle = document.querySelector('.toast-title');
   const toastMessage = document.querySelector('.toast-message');
-  
-  // Set toast content
-  toastIcon.className = 'toast-icon';
-  toastIcon.classList.add(type);
-  toastIcon.innerHTML = type === 'success' ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>';
-  
+
+  // Se o toast não existir, evita erro no sistema
+  if (!toast) return;
+
+  // Define o título e a mensagem dinamicamente
   toastTitle.textContent = title;
   toastMessage.textContent = message;
-  
-  // Show toast
-  if (!toast) return;
-  
-  // Fecha sozinho depois de 5 segundos
-  // Hide toast after 5 seconds
+
+  // Adiciona a classe que faz o toast aparecer
+  toast.classList.add('active');
+
+  // Remove automaticamente depois de 3 segundos
   setTimeout(() => {
-    closeToast();
-  }, 5000);
+    toast.classList.remove('active');
+  }, 3000);
 }
 
-// Fecha o toast manualmente
 // Close toast notification
+// Função para fechar o toast manualmente
 function closeToast() {
-  toast.classList.remove('active');
+  const toast = document.getElementById('toast');
+
+  // Remove a classe ativa (esconde o toast)
+  if (toast) {
+    toast.classList.remove('active');
+  }
 }
 
 // Animação quando o elemento entra na área visível
