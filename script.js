@@ -9,7 +9,9 @@ const currentYearSpan = document.getElementById('currentYear');
 
 // Atualizo o ano no rodapé automaticamente
 // Set current year in footer
-currentYearSpan.textContent = new Date().getFullYear();
+if (currentYearSpan) {
+  currentYearSpan.textContent = new Date().getFullYear();
+}
 
 // Adiciona efeitos ao rolar a página
 // Handle scroll events
@@ -66,12 +68,14 @@ function scrollToSection(id) {
 
 // Botão de voltar pro topo (scroll suave)
 // Scroll to top
-scrollToTopBtn.addEventListener('click', () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
+if (scrollToTopBtn) {
+  scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   });
-});
+}
 
 // Envio do formulário de contato
 // Contact form submission
@@ -185,7 +189,7 @@ function showToast(type, title, message) {
   toastMessage.textContent = message;
   
   // Show toast
-  toast.classList.add('active');
+  if (!toast) return;
   
   // Fecha sozinho depois de 5 segundos
   // Hide toast after 5 seconds
