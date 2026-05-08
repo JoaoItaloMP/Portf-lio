@@ -1,0 +1,71 @@
+/* Botão fixo no canto inferior direito */
+.scroll-top-btn {
+  position: fixed; /* fica fixo na tela */
+  bottom: 30px; /* distância da parte de baixo */
+  right: 30px; /* distância da direita */
+
+  background: #0f172a; /* cor de fundo (dark) */
+  color: white;
+
+  border: none;
+  padding: 12px 15px;
+  border-radius: 50%; /* deixa redondo */
+
+  cursor: pointer;
+
+  opacity: 0; /* começa invisível */
+  pointer-events: none; /* não clicável enquanto invisível */
+
+  transition: 0.3s; /* animação suave */
+}
+
+/* Classe ativada via JS quando o usuário rola a página */
+.scroll-top-btn.active {
+  opacity: 1; /* aparece */
+  pointer-events: auto; /* permite clique */
+}
+
+/* Efeito ao passar o mouse */
+.scroll-top-btn:hover {
+  transform: scale(1.1); /* aumenta levemente */
+}
+
+/* Container do toast */
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+
+  background: #1e293b;
+  color: white;
+
+  padding: 15px;
+  border-radius: 8px;
+
+  opacity: 0; /* começa invisível */
+  transform: translateY(-20px); /* começa levemente acima */
+
+  transition: 0.3s;
+  z-index: 1000; /* fica acima de tudo */
+}
+
+/* Quando o toast é ativado via JS */
+.toast.active {
+  opacity: 1; /* aparece */
+  transform: translateY(0); /* desce suavemente */
+}
+
+/* Organização interna */
+.toast-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Botão de fechar */
+.toast button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}

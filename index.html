@@ -279,6 +279,28 @@
       </div>
     </section>
     
+    <!-- Botão flutuante para voltar ao topo da página -->
+    <!-- Ele aparece quando o usuário rola a tela -->
+    <button id="scrollToTopBtn" class="scroll-top-btn">
+        <!-- Ícone de seta (Font Awesome) -->
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Container principal do toast (mensagem flutuante) -->
+    <div id="toast" class="toast">
+        <div class="toast-content">
+            <!-- Ícone que muda dependendo do tipo (success ou error) -->
+            <div class="toast-icon"></div>
+            <!-- Texto da mensagem -->
+            <div class="toast-text">
+                <strong class="toast-title"></strong> <!-- título -->
+                <p class="toast-message"></p> <!-- descrição -->
+            </div>
+            <!-- Botão para fechar manualmente -->
+            <button onclick="closeToast()">×</button>
+        </div>
+    </div>
+
     <!--Conecta com o arquivo JS-->
     <script src="script.js"></script>
 
