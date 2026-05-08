@@ -26,11 +26,13 @@ window.addEventListener('scroll', () => {
   
   // Mostra ou esconde o botão de "voltar pro topo"
   // Show/hide scroll to top button
+  if (scrollToTopBtn) {
   if (window.pageYOffset > 300) {
     scrollToTopBtn.classList.add('active');
   } else {
     scrollToTopBtn.classList.remove('active');
   }
+}
   
   // Chama animações quando os elementos entram na tela
   // Check for elements to animate on scroll
