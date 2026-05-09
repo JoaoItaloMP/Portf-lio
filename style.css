@@ -1,3 +1,17 @@
+/* ===== VARIÁVEIS DE COR ===== */
+:root {
+  --bg-dark: #020617;
+  --bg-secondary: #0f172a;
+
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+
+  --primary-color: #3b82f6;
+  --primary-hover: #2563eb;
+
+  --accent-glow: rgba(59, 130, 246, 0.5);
+}
+
 /* ===== RESET BÁSICO ===== */
 /* Remove margens e paddings padrão dos navegadores */
 * {
@@ -9,8 +23,8 @@
 /* ===== CONFIGURAÇÃO GLOBAL ===== */
 body {
   font-family: 'Inter', sans-serif; /* fonte moderna */
-  background-color: #0f172a; /* fundo escuro */
-  color: #e2e8f0; /* texto claro */
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
 
   line-height: 1.6; /* melhora leitura */
 }
@@ -192,4 +206,127 @@ main {
   border: none;
   color: white;
   cursor: pointer;
+}
+
+/* ===== HERO SECTION ===== */
+/* Seção principal que ocupa a tela toda */
+.hero-section {
+  min-height: 100vh; /* altura total da tela */
+  display: flex;
+  align-items: center; /* centraliza verticalmente */
+}
+
+/* Container interno que organiza texto e imagem lado a lado */
+.hero-content {
+  display: flex;
+  justify-content: space-between; /* separa esquerda/direita */
+  align-items: center;
+  gap: 50px;
+}
+
+/* ===== TEXTO ===== */
+
+/* Nome principal */
+.hero-text h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+/* Parte destacada do nome */
+.hero-text h1 span {
+  color: var(--primary-color);
+}
+
+/* Cargo */
+.hero-text h2 {
+  font-size: 2rem;
+  margin: 10px 0;
+  color: var(--text-secondary);
+}
+
+/* Descrição */
+.hero-text p {
+  margin: 20px 0;
+  color: var(--text-secondary);
+  max-width: 500px;
+}
+
+/* ===== BOTÕES ===== */
+
+/* Container dos botões */
+.hero-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+/* Botão principal */
+.primary-btn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Hover botão principal */
+.primary-btn:hover {
+  background: var(--primary-hover);
+}
+
+/* Botão secundário */
+.outline-btn {
+  background: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  padding: 12px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Hover botão secundário */
+.outline-btn:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* ===== IMAGEM ===== */
+
+/* Centraliza a imagem */
+.hero-image {
+  display: flex;
+  justify-content: center;
+}
+
+/* Container para efeitos */
+.image-container {
+  position: relative;
+}
+
+/* Imagem */
+.image-container img {
+  width: 300px;
+  border-radius: 50%; /* deixa redonda */
+  position: relative;
+  z-index: 2; /* fica na frente do glow */
+}
+
+/* Glow azul atrás da imagem */
+.image-container::before {
+  content: "";
+  position: absolute;
+
+  width: 320px;
+  height: 320px;
+
+  background: var(--primary-color);
+  border-radius: 50%;
+
+  filter: blur(60px); /* efeito luz */
+  opacity: 0.5;
+
+  z-index: 1;
 }
