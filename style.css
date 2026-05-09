@@ -1,3 +1,127 @@
+/* ===== RESET BÁSICO ===== */
+/* Remove margens e paddings padrão dos navegadores */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* evita bugs de tamanho */
+}
+
+/* ===== CONFIGURAÇÃO GLOBAL ===== */
+body {
+  font-family: 'Inter', sans-serif; /* fonte moderna */
+  background-color: #0f172a; /* fundo escuro */
+  color: #e2e8f0; /* texto claro */
+
+  line-height: 1.6; /* melhora leitura */
+}
+
+/* Remove decoração padrão de links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Remove estilo padrão de listas */
+ul {
+  list-style: none;
+}
+
+/* Container padrão para centralizar conteúdo */
+.container {
+  width: 90%; /* ocupa quase toda tela */
+  max-width: 1100px; /* limite em telas grandes */
+  margin: 0 auto; /* centraliza */
+}
+
+/* Compensa a altura do header fixo para evitar sobreposição do conteúdo */
+main {
+  padding-top: 80px;
+}
+
+/* ===== HEADER ===== */
+.header {
+  position: fixed; /* fica fixo no topo */
+  width: 100%;
+  top: 0;
+  height: 80px;/* Altura fixa do header para manter consistência no layout */
+
+  background: transparent;
+  transition: 0.3s;
+
+  z-index: 1000; /* fica acima de tudo */
+}
+
+/* Quando rolar a página (JS adiciona classe) */
+.header.scrolled {
+  background: rgba(15, 23, 42, 0.9); /* fundo escuro com transparência */
+  backdrop-filter: blur(10px); /* efeito vidro */
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 0;
+}
+
+/* Logo */
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #38bdf8; /* cor destaque */
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  color: #e2e8f0;
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+/* Efeito hover */
+.nav-link:hover {
+  color: #38bdf8;
+}
+
+.mobile-menu-btn {
+  display: none; /* escondido no desktop */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  display: none;
+  background: #0f172a;
+  padding: 20px;
+}
+
+.mobile-menu.active {
+  display: block;
+}
+
+.mobile-nav-link {
+  display: block;
+  margin-bottom: 10px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
 /* Botão fixo no canto inferior direito */
 .scroll-top-btn {
   position: fixed; /* fica fixo na tela */
