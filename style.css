@@ -216,39 +216,42 @@ main {
   align-items: center; /* centraliza verticalmente */
 }
 
-/* Container interno que organiza texto e imagem lado a lado */
+/* Layout principal do hero com mais respiro e equilíbrio visual */
 .hero-content {
   display: flex;
-  justify-content: space-between; /* separa esquerda/direita */
+  justify-content: space-between;
   align-items: center;
-  gap: 50px;
+
+  gap: 80px; /* mais espaço entre texto e imagem */
 }
 
 /* ===== TEXTO ===== */
 
-/* Nome principal */
+/* Nome principal com mais impacto visual */
 .hero-text h1 {
-  font-size: 3rem;
+  font-size: 3.5rem; /* maior destaque */
   font-weight: 700;
+  line-height: 1.2; /* evita espaçamento estranho */
 }
 
-/* Parte destacada do nome */
+/* Nome em azul com destaque */
 .hero-text h1 span {
   color: var(--primary-color);
 }
 
 /* Cargo */
 .hero-text h2 {
-  font-size: 2rem;
-  margin: 10px 0;
+  font-size: 1.8rem;
+  margin: 15px 0;
   color: var(--text-secondary);
 }
 
-/* Descrição */
+/* Descrição com melhor leitura */
 .hero-text p {
-  margin: 20px 0;
+  margin: 25px 0;
   color: var(--text-secondary);
-  max-width: 500px;
+  max-width: 520px;
+  font-size: 1rem;
 }
 
 /* ===== BOTÕES ===== */
@@ -306,27 +309,63 @@ main {
   position: relative;
 }
 
-/* Imagem */
+/* Imagem maior e mais destacada */
 .image-container img {
-  width: 300px;
-  border-radius: 50%; /* deixa redonda */
+  width: 350px; /* aumentamos */
+  border-radius: 50%;
   position: relative;
-  z-index: 2; /* fica na frente do glow */
+  z-index: 2;
+
+  box-shadow: 0 0 40px var(--accent-glow); /* glow mais forte */
 }
 
-/* Glow azul atrás da imagem */
+/* Glow mais suave e espalhado */
 .image-container::before {
   content: "";
   position: absolute;
 
-  width: 320px;
-  height: 320px;
+  width: 380px;
+  height: 380px;
 
   background: var(--primary-color);
   border-radius: 50%;
 
-  filter: blur(60px); /* efeito luz */
-  opacity: 0.5;
+  filter: blur(80px); /* mais suave */
+  opacity: 0.4;
 
   z-index: 1;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+
+  /* Empilha os elementos (vertical) */
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Ajusta texto */
+  .hero-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-text h2 {
+    font-size: 1.5rem;
+  }
+
+  /* Centraliza botões */
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  /* Diminui imagem */
+  .image-container img {
+    width: 250px;
+  }
+
+  .image-container::before {
+    width: 280px;
+    height: 280px;
+  }
 }
