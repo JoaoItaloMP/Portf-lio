@@ -298,10 +298,12 @@ main {
 
 /* ===== IMAGEM ===== */
 
-/* Centraliza a imagem */
+/* Dá mais respiro pra imagem */
 .hero-image {
   display: flex;
   justify-content: center;
+
+  padding: 40px; /* aumenta o espaço ao redor */
 }
 
 /* Container para efeitos */
@@ -309,31 +311,46 @@ main {
   position: relative;
 }
 
-/* Imagem maior e mais destacada */
+/* ===== IMAGEM MAIS NATURAL E MAIOR ===== */
 .image-container img {
-  width: 350px; /* aumentamos */
-  border-radius: 50%;
-  position: relative;
-  z-index: 2;
+  width: 380px; /* aumentamos o tamanho */
+  height: 380px; /* mantém proporção */
 
-  box-shadow: 0 0 40px var(--accent-glow); /* glow mais forte */
+  object-fit: cover; /* evita distorção */
+
+  border-radius: 50%; /* continua redonda */
+
+  position: relative;
+  z-index: 2; /* garante que fica na frente do glow */
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* sombra mais suave e realista */
 }
 
-/* Glow mais suave e espalhado */
+/* ===== GLOW ATRÁS DA IMAGEM ===== */
+/* Cria um efeito de luz suave atrás da imagem */
 .image-container::before {
   content: "";
   position: absolute;
 
-  width: 380px;
-  height: 380px;
+  width: 420px;
+  height: 420px;
 
-  background: var(--primary-color);
+  background: radial-gradient(
+    circle,
+    var(--primary-color) 0%,
+    transparent 70%
+  );
+
   border-radius: 50%;
 
-  filter: blur(80px); /* mais suave */
-  opacity: 0.4;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-  z-index: 1;
+  filter: blur(70px); /* suaviza o brilho */
+  opacity: 2.0; /* intensidade equilibrada */
+
+  z-index: 1; /* fica atrás da imagem */
 }
 
 /* ===== RESPONSIVIDADE ===== */
