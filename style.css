@@ -369,3 +369,39 @@ main {
     height: 280px;
   }
 }
+
+/* ===== ANIMAÇÕES ===== */
+
+/* Elemento começa invisível e deslocado */
+.animate-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s ease;
+}
+
+.animate-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.8s ease;
+}
+
+.animate-item {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+/* Quando ativado */
+.animate-left.active,
+.animate-right.active,
+.animate-item.active {
+  opacity: 1;
+  transform: translate(0);
+}
+
+/* Navbar quando rolar a página */
+.header.scrolled {
+  background: rgba(2, 6, 23, 0.9); /* fundo escuro transparente */
+  backdrop-filter: blur(10px); /* efeito glass */
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}

@@ -242,3 +242,38 @@ window.addEventListener('DOMContentLoaded', () => {
     link.setAttribute('rel', 'noopener noreferrer');
   });
 });
+
+/* ===== ANIMAÇÃO AO SCROLL ===== */
+
+// Seleciona todos elementos animáveis
+const animatedElements = document.querySelectorAll(
+  '.animate-left, .animate-right, .animate-item'
+);
+
+// Função que ativa animação quando aparece na tela
+function handleScrollAnimation() {
+  const triggerBottom = window.innerHeight * 0.85;
+
+  animatedElements.forEach((el) => {
+    const elementTop = el.getBoundingClientRect().top;
+
+    if (elementTop < triggerBottom) {
+      el.classList.add('active');
+    }
+  });
+}
+
+// Executa ao rolar
+window.addEventListener('scroll', handleScrollAnimation);
+
+// Executa ao carregar
+window.addEventListener('load', handleScrollAnimation);
+
+/* ===== NAVBAR AO ROLAR ===== */
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
