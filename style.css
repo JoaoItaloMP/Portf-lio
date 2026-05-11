@@ -422,3 +422,134 @@ main {
   backdrop-filter: blur(10px); /* efeito glass */
   box-shadow: 0 5px 20px rgba(0,0,0,0.3);
 }
+
+/* ===== ABOUT SECTION ===== */
+/* Seção sobre mim */
+.about-section {
+  padding: 120px 0; /* espaço vertical */
+  background: var(--bg-secondary);
+}
+
+/* Títulos principais das seções */
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+
+  margin-bottom: 60px;
+
+  color: var(--text-primary);
+
+  position: relative;
+}
+
+/* Linha decorativa abaixo do título */
+.section-title::after {
+  content: "";
+
+  width: 80px;
+  height: 4px;
+
+  background: var(--primary-color);
+
+  position: absolute;
+
+  left: 50%;
+  bottom: -15px;
+
+  transform: translateX(-50%);
+
+  border-radius: 10px;
+}
+
+/* Organiza texto e cards lado a lado */
+.about-content {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+/* Área de texto */
+.about-text {
+  flex: 1;
+}
+
+/* Subtítulo */
+.about-text h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Parágrafos */
+.about-text p {
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+
+  line-height: 1.8;
+}
+
+/* Grid dos cards */
+.about-features {
+  flex: 1;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 20px;
+}
+
+/* Card individual */
+.feature-card {
+  background: rgba(255, 255, 255, 0.03);
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  padding: 30px;
+  border-radius: 20px;
+
+  transition: 0.3s ease;
+
+  backdrop-filter: blur(10px);
+}
+
+/* Hover do card */
+.feature-card:hover {
+  transform: translateY(-8px);
+
+  border-color: var(--primary-color);
+
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+}
+
+/* Ícone do card */
+.feature-icon {
+  width: 60px;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(59, 130, 246, 0.1);
+
+  border-radius: 15px;
+
+  margin-bottom: 20px;
+}
+
+/* Ícone */
+.feature-icon i {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+/* ===== RESPONSIVIDADE SOBRE ===== */
+@media (max-width: 768px) {
+
+  .about-content {
+    flex-direction: column;
+  }
+
+  .about-features {
+    grid-template-columns: 1fr;
+  }
+}
