@@ -385,6 +385,22 @@ main {
     width: 280px;
     height: 280px;
   }
+
+  .about-content {
+    flex-direction: column;
+  }
+
+  .about-features {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-content {
+    flex-direction: column;
+  }
+
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* ===== ANIMAÇÕES ===== */
@@ -542,14 +558,116 @@ main {
   color: var(--primary-color);
 }
 
-/* ===== RESPONSIVIDADE SOBRE ===== */
-@media (max-width: 768px) {
+/* ===== SKILLS SECTION ===== */
+/* Seção de habilidades */
+.skills-section {
+  padding: 120px 0;
+  background: var(--bg-dark);
+}
 
-  .about-content {
-    flex-direction: column;
-  }
+/* Organiza skills técnicas e tecnologias */
+.skills-content {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
 
-  .about-features {
-    grid-template-columns: 1fr;
-  }
+/* Títulos internos */
+.technical-skills h3,
+.technologies h3 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+/* Item individual */
+.skill-item {
+  margin-bottom: 30px;
+}
+
+/* Cabeçalho da skill */
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 10px;
+
+  font-weight: 500;
+}
+
+/* Fundo da barra */
+.progress-bar {
+  width: 100%;
+  height: 12px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  border-radius: 20px;
+
+  overflow: hidden;
+}
+
+/* Barra preenchida */
+.progress {
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    #60a5fa
+  );
+
+  border-radius: 20px;
+
+  transition: width 1s ease;
+}
+
+/* Grid das tecnologias */
+.tech-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+/* Card individual */
+.tech-card {
+  background: rgba(255, 255, 255, 0.03);
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  border-radius: 20px;
+
+  padding: 30px 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 15px;
+
+  transition: 0.3s ease;
+
+  cursor: pointer;
+}
+
+/* Hover */
+.tech-card:hover {
+  transform: translateY(-8px);
+
+  border-color: var(--primary-color);
+
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+}
+
+/* Ícones */
+.tech-card i {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+}
+
+/* Nome da tecnologia */
+.tech-card span {
+  font-weight: 500;
 }
