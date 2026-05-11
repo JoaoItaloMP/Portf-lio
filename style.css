@@ -671,3 +671,127 @@ main {
 .tech-card span {
   font-weight: 500;
 }
+
+/* ===== PROJECTS SECTION ===== */
+
+.projects-section {
+  padding: 120px 0;
+  background: var(--bg-secondary);
+}
+
+/* Grid */
+.projects-grid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+  gap: 40px;
+}
+
+/* Card */
+.project-card {
+  background: rgba(255, 255, 255, 0.03);
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  border-radius: 25px;
+
+  overflow: hidden;
+
+  transition: 0.3s ease;
+
+  backdrop-filter: blur(10px);
+}
+
+/* Hover */
+.project-card:hover {
+  transform: translateY(-10px);
+
+  border-color: var(--primary-color);
+
+  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.2);
+}
+
+/* Imagem */
+.project-image img {
+  width: 100%;
+  height: 220px;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+/* Conteúdo */
+.project-content {
+  padding: 30px;
+}
+
+/* Título */
+.project-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+/* Texto */
+.project-content p {
+  color: var(--text-secondary);
+
+  line-height: 1.7;
+
+  margin-bottom: 20px;
+}
+
+/* Tags das tecnologias */
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-bottom: 25px;
+}
+
+/* Tag */
+.project-tech span {
+  background: rgba(59, 130, 246, 0.15);
+
+  color: var(--primary-color);
+
+  padding: 8px 14px;
+
+  border-radius: 999px;
+
+  font-size: 0.9rem;
+}
+
+/* Área dos botões */
+.project-links {
+  display: flex;
+  gap: 15px;
+}
+
+/* Botão */
+.project-btn {
+  padding: 12px 20px;
+
+  border-radius: 12px;
+
+  text-decoration: none;
+
+  background: rgba(255,255,255,0.05);
+
+  color: var(--text-primary);
+
+  transition: 0.3s ease;
+}
+
+/* Hover */
+.project-btn:hover {
+  background: var(--primary-color);
+}
+
+/* Botão demo */
+.project-btn.live {
+  background: var(--primary-color);
+}
