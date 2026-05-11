@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <!-- Cabeçalho principal com links para navegação e menu mobile --> 
   <!-- Header -->
@@ -302,97 +303,171 @@
         </div>
     </div>
 
-  <!-- ===== SEÇÃO DE PROJETOS ===== -->
-  <section id="projects" class="projects-section">
+    <!-- ===== SEÇÃO DE PROJETOS ===== -->
+    <section id="projects" class="projects-section">
+
+      <div class="container">
+
+        <!-- Título da seção -->
+        <h2 class="section-title">Projetos</h2>
+
+        <!-- Grid dos projetos -->
+        <div class="projects-grid">
+
+          <!-- Projeto 1 -->
+          <div class="project-card animate-item">
+
+            <!-- Imagem do projeto -->
+            <div class="project-image">
+              <img src="img/projeto1.jpg" alt="Projeto Portfolio">
+            </div>
+
+            <!-- Conteúdo -->
+            <div class="project-content">
+
+              <h3>Portfólio Profissional</h3>
+
+              <p>
+                Um portfólio moderno desenvolvido com HTML, CSS e JavaScript.
+              </p>
+
+              <!-- Tecnologias -->
+              <div class="project-tech">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+              </div>
+
+              <!-- Botões -->
+              <div class="project-links">
+
+                <a href="#" target="_blank" class="project-btn">
+                  GitHub
+                </a>
+
+                <a href="#" target="_blank" class="project-btn live">
+                  Demo
+                </a>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Projeto 2 -->
+          <div class="project-card animate-item">
+
+            <div class="project-image">
+              <img src="img/projeto2.jpg" alt="Projeto StudyTrack">
+            </div>
+
+            <div class="project-content">
+
+              <h3>StudyTrack</h3>
+
+              <p>
+                Aplicativo mobile para organização de estudos acadêmicos.
+              </p>
+
+              <div class="project-tech">
+                <span>Flutter</span>
+                <span>FastAPI</span>
+                <span>SQLite</span>
+              </div>
+
+              <div class="project-links">
+
+                <a href="#" target="_blank" class="project-btn">
+                  GitHub
+                </a>
+
+                <a href="#" target="_blank" class="project-btn live">
+                  Demo
+                </a>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SEÇÃO CONTATO ===== -->
+    <section id="contact" class="contact-section">
+
+      <div class="container">
+
+        <!-- Título -->
+        <h2 class="section-title">Contato</h2>
+
+        <div class="contact-content">
+
+          <!-- Texto -->
+          <div class="contact-info animate-left">
+
+            <h3>Vamos conversar</h3>
+
+            <p>
+              Estou disponível para novos projetos, freelas e oportunidades.
+            </p>
+
+            <!-- Links -->
+            <div class="contact-links">
+
+              <a href="mailto:mastedhd@gmail.com">
+                <i class="fas fa-envelope"></i>
+                Email
+              </a>
+
+              <a href="https://github.com/JoaoItaloMP" target="_blank">
+                <i class="fab fa-github"></i>
+                GitHub
+              </a>
+
+              <a href="https://linkedin.com" target="_blank">
+                <i class="fab fa-linkedin"></i>
+                LinkedIn
+              </a>
+
+            </div>
+          </div>
+
+          <!-- Formulário -->
+          <form id="contactForm" class="contact-form animate-right">
+
+            <input type="text" placeholder="Seu nome" required>
+
+            <input type="email" placeholder="Seu email" required>
+
+            <textarea placeholder="Sua mensagem" rows="6" required></textarea>
+
+            <button type="submit" class="primary-btn">
+              Enviar mensagem
+            </button>
+
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
 
     <div class="container">
 
-      <!-- Título da seção -->
-      <h2 class="section-title">Projetos</h2>
+      <p>
+        © <span id="currentYear"></span> João Italo.
+        Todos os direitos reservados.
+      </p>
 
-      <!-- Grid dos projetos -->
-      <div class="projects-grid">
-
-        <!-- Projeto 1 -->
-        <div class="project-card animate-item">
-
-          <!-- Imagem do projeto -->
-          <div class="project-image">
-            <img src="img/projeto1.jpg" alt="Projeto Portfolio">
-          </div>
-
-          <!-- Conteúdo -->
-          <div class="project-content">
-
-            <h3>Portfólio Profissional</h3>
-
-            <p>
-              Um portfólio moderno desenvolvido com HTML, CSS e JavaScript.
-            </p>
-
-            <!-- Tecnologias -->
-            <div class="project-tech">
-              <span>HTML</span>
-              <span>CSS</span>
-              <span>JavaScript</span>
-            </div>
-
-            <!-- Botões -->
-            <div class="project-links">
-
-              <a href="#" target="_blank" class="project-btn">
-                GitHub
-              </a>
-
-              <a href="#" target="_blank" class="project-btn live">
-                Demo
-              </a>
-
-            </div>
-          </div>
-        </div>
-
-        <!-- Projeto 2 -->
-        <div class="project-card animate-item">
-
-          <div class="project-image">
-            <img src="img/projeto2.jpg" alt="Projeto StudyTrack">
-          </div>
-
-          <div class="project-content">
-
-            <h3>StudyTrack</h3>
-
-            <p>
-              Aplicativo mobile para organização de estudos acadêmicos.
-            </p>
-
-            <div class="project-tech">
-              <span>Flutter</span>
-              <span>FastAPI</span>
-              <span>SQLite</span>
-            </div>
-
-            <div class="project-links">
-
-              <a href="#" target="_blank" class="project-btn">
-                GitHub
-              </a>
-
-              <a href="#" target="_blank" class="project-btn live">
-                Demo
-              </a>
-
-            </div>
-          </div>
-        </div>
-
-      </div>
     </div>
-  </section>
+  </footer>
 
-    <!--Conecta com o arquivo JS-->
-    <script src="script.js"></script>
+  <!--Conecta com o arquivo JS-->
+  <script src="script.js"></script>
 
-  </body>
+</body>
 </html>

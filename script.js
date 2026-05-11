@@ -277,3 +277,13 @@ window.addEventListener('scroll', () => {
     header.classList.remove('scrolled');
   }
 });
+
+/* ===== ANO AUTOMÁTICO ===== */
+
+// Seleciona elemento do ano
+const currentYear = document.getElementById('currentYear');
+
+// Insere ano atual automaticamente
+if (currentYear) {
+  currentYear.textContent = new Date().getFullYear();
+}

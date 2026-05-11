@@ -401,6 +401,10 @@ main {
   .tech-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+   .contact-content {
+    flex-direction: column;
+  }
 }
 
 /* ===== ANIMAÇÕES ===== */
@@ -794,4 +798,116 @@ main {
 /* Botão demo */
 .project-btn.live {
   background: var(--primary-color);
+}
+
+/* ===== CONTACT SECTION ===== */
+
+.contact-section {
+  padding: 120px 0;
+  background: var(--bg-dark);
+}
+
+/* Layout */
+.contact-content {
+  display: flex;
+  gap: 60px;
+}
+
+/* Texto */
+.contact-info {
+  flex: 1;
+}
+
+.contact-info h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.contact-info p {
+  color: var(--text-secondary);
+  margin-bottom: 30px;
+
+  line-height: 1.8;
+}
+
+/* Links */
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Link individual */
+.contact-links a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  text-decoration: none;
+
+  color: var(--text-primary);
+
+  transition: 0.3s ease;
+}
+
+/* Hover */
+.contact-links a:hover {
+  color: var(--primary-color);
+}
+
+/* Formulário */
+.contact-form {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+/* Inputs */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+
+  padding: 18px;
+
+  border-radius: 15px;
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  background: rgba(255,255,255,0.03);
+
+  color: var(--text-primary);
+
+  font-size: 1rem;
+
+  outline: none;
+
+  transition: 0.3s ease;
+}
+
+/* Focus */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--primary-color);
+
+  box-shadow: 0 0 15px rgba(59,130,246,0.2);
+}
+
+/* ===== FOOTER ===== */
+
+.footer {
+  padding: 30px 0;
+
+  border-top: 1px solid rgba(255,255,255,0.05);
+
+  background: var(--bg-secondary);
+
+  text-align: center;
+}
+
+/* Texto */
+.footer p {
+  color: var(--text-secondary);
 }
