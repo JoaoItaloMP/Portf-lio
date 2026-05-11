@@ -22,7 +22,10 @@
   <header class="header">
     <div class="container">
       <nav class="nav">
-        <a href="#" class="logo">Teste<span>.dev</span></a>
+        <!-- Logo principal -->
+        <a href="#" class="logo">
+          João Italo<span>.dev</span>
+        </a>
         
         <!-- Menu que aparece em telas maiores -->
         <!-- Desktop Navigation -->
@@ -33,6 +36,11 @@
           <button onclick="scrollToSection('projects')" class="nav-link">Projetos</button>
           <button onclick="scrollToSection('contact')" class="nav-link">Contato</button>
         </div>
+
+        <!-- Botão separado-->
+        <a href="#contact" class="nav-contact-btn">
+          Contato
+        </a>
             
         <!-- Botão que aparece no celular para abrir o menu hamburguer -->
         <!-- Mobile Menu Button -->
@@ -63,8 +71,17 @@
         <div class="hero-content">
           <div class="hero-text animate-left">
             <!-- Aqui me apresento como dev -->
-            <h1>Olá, eu sou <span>João Italo</span></h1><!-- O span é usado para destacar o nome com cor via CSS -->
-            <h2>Full Stack Developer</h2>
+            <!-- Título principal -->
+            <h1>
+              Olá, eu sou
+              <span class="gradient-text">
+                João Italo
+              </span>
+            </h1>
+            <!-- Cargo / especialidade -->
+            <h2 class="gradient-text-secondary">
+              Full Stack Developer
+            </h2>
             <p>
                 Eu crio experiências digitais excepcionais que são rápidas, acessíveis e projetadas com a experiência do usuário em primeiro lugar.
             </p>
