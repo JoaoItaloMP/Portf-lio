@@ -841,49 +841,83 @@ main {
   gap: 40px;
 }
 
-/* Card */
+/* =========================
+   CARD DOS PROJETOS
+========================= */
+
 .project-card {
+
+  position: relative;
+
   background: rgba(255, 255, 255, 0.03);
 
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 
-  border-radius: 25px;
+  border-radius: 28px;
 
   overflow: hidden;
 
-  transition: 0.3s ease;
+  transition: all 0.4s ease;
 
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.25);
+
+  cursor: pointer;
 }
 
-/* Hover */
+/* Hover premium */
 .project-card:hover {
-  transform: translateY(-10px);
 
-  border-color: var(--primary-color);
+  transform: translateY(-12px);
 
-  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.2);
+  border-color: rgba(96,165,250,0.5);
+
+  box-shadow:
+    0 20px 40px rgba(59,130,246,0.18);
 }
 
-/* Imagem */
+/* Imagem do projeto */
+.project-image {
+
+  overflow: hidden;
+}
+
+/* Banner */
 .project-image img {
+
   width: 100%;
-  height: 220px;
+
+  height: 240px;
 
   object-fit: cover;
 
   display: block;
+
+  transition: transform 0.5s ease;
 }
 
-/* Conteúdo */
+/* Zoom suave */
+.project-card:hover .project-image img {
+
+  transform: scale(1.05);
+}
+
+/* Conteúdo do card */
 .project-content {
-  padding: 30px;
+
+  padding: 32px;
 }
 
-/* Título */
+/* Nome do projeto */
 .project-content h3 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
+
+  font-size: 1.6rem;
+
+  margin-bottom: 16px;
+
+  font-weight: 700;
 }
 
 /* Texto */
@@ -905,17 +939,32 @@ main {
   margin-bottom: 25px;
 }
 
-/* Tag */
+/* Tags das tecnologias */
 .project-tech span {
-  background: rgba(59, 130, 246, 0.15);
 
-  color: var(--primary-color);
+  background: rgba(59,130,246,0.10);
 
-  padding: 8px 14px;
+  border: 1px solid rgba(96,165,250,0.18);
+
+  color: #60a5fa;
+
+  padding: 10px 16px;
 
   border-radius: 999px;
 
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+
+  font-weight: 500;
+
+  transition: 0.3s ease;
+}
+
+/* Hover */
+.project-tech span:hover {
+
+  background: rgba(59,130,246,0.18);
+
+  transform: translateY(-2px);
 }
 
 /* Área dos botões */
@@ -924,29 +973,49 @@ main {
   gap: 15px;
 }
 
-/* Botão */
+/* Botões do projeto */
 .project-btn {
-  padding: 12px 20px;
 
-  border-radius: 12px;
+  padding: 13px 22px;
+
+  border-radius: 14px;
 
   text-decoration: none;
 
-  background: rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.04);
+
+  border: 1px solid rgba(255,255,255,0.08);
 
   color: var(--text-primary);
 
-  transition: 0.3s ease;
+  font-weight: 500;
+
+  transition: all 0.3s ease;
 }
 
 /* Hover */
 .project-btn:hover {
-  background: var(--primary-color);
+
+  transform: translateY(-3px);
+
+  border-color: #60a5fa;
+
+  background: rgba(59,130,246,0.12);
 }
 
-/* Botão demo */
+/* Botão principal */
 .project-btn.live {
-  background: var(--primary-color);
+
+  background: linear-gradient(
+    90deg,
+    #1d4ed8 0%,
+    #3b82f6 85%,
+    #60a5fa 100%
+  );
+
+  border: none;
+
+  color: white;
 }
 
 /* ===== CONTACT SECTION ===== */
