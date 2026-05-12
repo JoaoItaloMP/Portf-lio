@@ -138,7 +138,9 @@ main {
 
   font-size: 0.95rem;
 
-  font-weight: 500;
+  font-weight: 600;
+
+  letter-spacing: 0.3px;
 
   cursor: pointer;
 
@@ -1156,6 +1158,10 @@ html {
     #3b82f6 45%,
     #60a5fa 100%
   );
+
+  /* Glow suave azul */
+  text-shadow:
+  0 0 10px rgba(59,130,246,0.25);
 
   -webkit-background-clip: text;
   background-clip: text;
