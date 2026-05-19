@@ -543,22 +543,22 @@ main {
     grid-template-columns: 1fr;
   }
 
-  .skills-content {
-    /* Divide em 2 colunas */
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 50px; /* Espaçamento entre os lados */
-    align-items: start; /* Alinha verticalmente */
-    margin-top: 60px;/* Espaço superior */
-  }
+  /* Em mobile, empilha verticalmente para melhor leitura */
+.skills-content {
+  grid-template-columns: 1fr;
+  gap: 30px;
+  margin-top: 40px;
+}
 
+  /* Garante que a coluna de barras preencha o espaço */
   .technical-skills {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 24px;
-    padding: 35px;
-    backdrop-filter: blur(10px);
-  }
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 35px;
+  backdrop-filter: blur(10px);
+  width: 100%; /* ocupa 100% da sua coluna no grid */
+}
 
   .tech-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -731,11 +731,13 @@ main {
   background: var(--bg-dark);
 }
 
-/* Organiza skills técnicas e tecnologias */
+/* Organiza skills técnicas e tecnologias — proporção equilibrada */
 .skills-content {
-  display: flex;
-  gap: 60px;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* colunas iguais, sem espaço vazio */
+  gap: 40px;
+  align-items: start;
+  margin-top: 20px;
 }
 
 .technologies {
@@ -791,25 +793,26 @@ main {
   box-shadow: 0 0 15px rgba(59,130,246,0.4);
 }
 
-/* Grid das tecnologias */
+/* Grid das tecnologias — 2 colunas balanceadas com cards uniformes */
 .tech-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  margin-top: 30px;
+  gap: 16px;
+  margin-top: 24px;
 }
 
-/* Card individual */
+/* Card individual — altura mínima uniforme para alinhamento visual */
 .tech-card {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 18px;
-  padding: 18px;
+  padding: 22px 18px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
+  min-height: 110px; /* garante altura uniforme entre cards */
   transition: 0.3s ease;
   cursor: pointer;
 }
