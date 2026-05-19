@@ -151,15 +151,22 @@ fix: corrige função toast
 João Italo
 
 Desenvolvedor focado em:
+
 Front-end
+
 UI/UX
+
 Desenvolvimento Mobile
+
 Interfaces modernas
+
 Experiência do usuário
 
 📬 Contato
 GitHub: https://github.com/JoaoItaloMP
+
 LinkedIn:(https://www.linkedin.com/in/jo%C3%A3o-italo-moreira-pamplona-28607137a/)
+
 Email: mastedhd@gmail.com
 
 ⭐ Considerações
