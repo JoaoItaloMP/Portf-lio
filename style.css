@@ -550,15 +550,10 @@ main {
   margin-top: 40px;
 }
 
-  /* Garante que a coluna de barras preencha o espaço */
+  /* Garante que o card de skills preencha o espaço em mobile */
   .technical-skills {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 24px;
-  padding: 35px;
-  backdrop-filter: blur(10px);
-  width: 100%; /* ocupa 100% da sua coluna no grid */
-}
+    width: 100%;
+  }
 
   .tech-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -748,6 +743,22 @@ main {
   backdrop-filter: blur(10px);
 }
 
+/* Coluna de habilidades técnicas — espelha o estilo de .technologies */
+.technical-skills {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 35px;
+  backdrop-filter: blur(10px);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover sutil para manter coerência com outros cards */
+.technical-skills:hover {
+  border-color: rgba(59, 130, 246, 0.2);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.06);
+}
+
 /* Títulos internos */
 .technical-skills h3,
 .technologies h3 {
@@ -770,27 +781,62 @@ main {
   font-weight: 500;
 }
 
-/* Fundo da barra */
+/* Fundo da barra — mais refinado com borda sutil */
 .progress-bar {
   width: 100%;
-  height: 10px;
-  background: rgba(255, 255, 255, 0.08);
+  height: 8px; /* levemente mais fina, aparência premium */
+  background: rgba(255, 255, 255, 0.06);
   border-radius: 999px;
   overflow: hidden;
   margin-top: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.05); /* borda suave para profundidade */
 }
 
-/* Barra preenchida */
+/* Barra preenchida — gradiente mais sofisticado com glow elegante */
 .progress {
+  height: 100%;
+  /* Gradiente mais rico com três pontos de cor */
+  background: linear-gradient(
+    90deg,
+    #1d4ed8 0%,
+    #3b82f6 60%,
+    #93c5fd 100%
+  );
+  border-radius: 999px;
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1); /* curva mais suave */
+  /* Glow refinado — não exagerado */
+  box-shadow:
+    0 0 8px rgba(59, 130, 246, 0.35),
+    0 0 2px rgba(147, 197, 253, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efeito de brilho deslizante na barra — shimmer sutil */
+.progress::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 50%;
   height: 100%;
   background: linear-gradient(
     90deg,
-    var(--primary-color),
-    #60a5fa
+    transparent,
+    rgba(255, 255, 255, 0.18),
+    transparent
   );
+  /* Animação do shimmer — 3s loop suave */
+  animation: shimmer 3s ease-in-out infinite;
   border-radius: 999px;
-  transition: width 1s ease;
-  box-shadow: 0 0 15px rgba(59,130,246,0.4);
+}
+
+/* Animação do brilho deslizante */
+@keyframes shimmer {
+  0%   { left: -60%; opacity: 0; }
+  20%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { left: 110%; opacity: 0; }
 }
 
 /* Grid das tecnologias — 2 colunas balanceadas com cards uniformes */
