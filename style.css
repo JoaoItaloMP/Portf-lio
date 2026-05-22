@@ -19,10 +19,10 @@
   padding: 0;
   box-sizing: border-box; /* evita bugs de tamanho */
 
-  transition: background 0.3s ease,
-            color 0.3s ease,
-            border-color 0.3s ease,
-            transform 0.3s ease;
+  /* OTIMIZAÇÃO: transition removida do seletor universal.
+     Aplicar transition em * força o browser a monitorar
+     background/color/border-color/transform em TODOS os elementos
+     do DOM — causava repaints em cascata a cada scroll e hover. */
 }
 
 /* ===== CONFIGURAÇÃO GLOBAL ===== */
@@ -77,7 +77,8 @@ main {
 
   background: transparent;
 
-  transition: all 0.3s ease;
+  /* OTIMIZAÇÃO: específico — background e padding são o que muda ao rolar */
+  transition: background 0.3s ease, padding 0.3s ease;
 }
 
 /* Efeito ao rolar */
@@ -146,7 +147,8 @@ main {
 
   position: relative;
 
-  transition: all 0.3s ease;
+  /* OTIMIZAÇÃO: transition específica em vez de 'all' */
+  transition: color 0.3s ease;
 }
 
 /* Hover */
@@ -170,7 +172,8 @@ main {
 
   background: var(--primary-color);
 
-  transition: 0.3s ease;
+  /* OTIMIZAÇÃO: só anima width — evita monitorar propriedades desnecessárias */
+  transition: width 0.3s ease;
 }
 
 /* Linha aparece */
@@ -201,7 +204,8 @@ main {
     #60a5fa 100%
   );
 
-  transition: all 0.3s ease;
+  /* OTIMIZAÇÃO: só anima transform e box-shadow — as propriedades que realmente mudam no hover */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   box-shadow: 0 0 20px rgba(59,130,246,0.25);
 }
@@ -257,7 +261,8 @@ main {
   opacity: 0; /* começa invisível */
   pointer-events: none; /* não clicável enquanto invisível */
 
-  transition: 0.3s; /* animação suave */
+  /* OTIMIZAÇÃO: especificado opacity e transform — as únicas propriedades que animam */
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 /* Classe ativada via JS quando o usuário rola a página */
@@ -286,7 +291,8 @@ main {
   opacity: 0; /* começa invisível */
   transform: translateY(-20px); /* começa levemente acima */
 
-  transition: 0.3s;
+  /* OTIMIZAÇÃO: específico — opacity e transform são as propriedades que animam */
+  transition: opacity 0.3s ease, transform 0.3s ease;
   z-index: 1000; /* fica acima de tudo */
 }
 
@@ -400,7 +406,8 @@ main {
 
   cursor: pointer;
 
-  transition: all 0.3s ease;
+  /* OTIMIZAÇÃO: só as propriedades que animam no hover — transform e box-shadow são GPU-friendly */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   box-shadow: 0 0 20px rgba(59,130,246,0.25);
 }
@@ -434,7 +441,8 @@ main {
 
   cursor: pointer;
 
-  transition: all 0.3s ease;
+  /* OTIMIZAÇÃO: específico — evita monitorar todas as propriedades */
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 /* Hover */
@@ -497,7 +505,7 @@ main {
   transform: translate(-50%, -50%);
 
   filter: blur(70px); /* suaviza o brilho */
-  opacity: 2.0; /* intensidade equilibrada */
+  opacity: 1; /* OTIMIZAÇÃO: corrigido de 2.0 (valor inválido — browser clampa para 1 de qualquer forma) */
 
   z-index: 1; /* fica atrás da imagem */
 }
@@ -570,19 +578,22 @@ main {
 .animate-left {
   opacity: 0;
   transform: translateX(-50px);
-  transition: all 0.8s ease;
+  /* OTIMIZAÇÃO: só opacity e transform — únicas propriedades que mudam ao ativar .active */
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .animate-right {
   opacity: 0;
   transform: translateX(50px);
-  transition: all 0.8s ease;
+  /* OTIMIZAÇÃO: específico em vez de 'all 0.8s' */
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .animate-item {
   opacity: 0;
   transform: translateY(40px);
-  transition: all 0.8s ease;
+  /* OTIMIZAÇÃO: específico em vez de 'all 0.8s' */
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 /* Quando ativado */
@@ -590,7 +601,9 @@ main {
 .animate-right.active,
 .animate-item.active {
   opacity: 1;
-  transform: translate(0);
+  /* OTIMIZAÇÃO: translateX(0)/translateY(0) explícitos evitam ambiguidade
+     com o shorthand translate(0) que pode gerar reflow em alguns browsers */
+  transform: translateX(0) translateY(0);
 }
 
 /* Navbar quando rolar a página */
@@ -683,7 +696,8 @@ main {
   padding: 30px;
   border-radius: 20px;
 
-  transition: 0.3s ease;
+  /* OTIMIZAÇÃO: específico — transform, border-color e box-shadow são as propriedades que animam */
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 
   backdrop-filter: blur(10px);
 }
@@ -817,7 +831,11 @@ main {
   content: "";
   position: absolute;
   top: 0;
-  left: -60%;
+  /* OTIMIZAÇÃO: left substituído por transform: translateX().
+     Animar 'left' causa layout recalc a cada frame (não é GPU-friendly).
+     transform: translateX() roda 100% na GPU sem tocar no layout. */
+  left: 0;
+  transform: translateX(-160%);
   width: 50%;
   height: 100%;
   background: linear-gradient(
@@ -833,10 +851,11 @@ main {
 
 /* Animação do brilho deslizante */
 @keyframes shimmer {
-  0%   { left: -60%; opacity: 0; }
+  /* OTIMIZAÇÃO: anima translateX em vez de 'left' — zero impacto no layout */
+  0%   { transform: translateX(-160%); opacity: 0; }
   20%  { opacity: 1; }
   80%  { opacity: 1; }
-  100% { left: 110%; opacity: 0; }
+  100% { transform: translateX(280%); opacity: 0; }
 }
 
 /* Grid das tecnologias — 2 colunas balanceadas com cards uniformes */
@@ -859,7 +878,8 @@ main {
   justify-content: center;
   gap: 10px;
   min-height: 110px; /* garante altura uniforme entre cards */
-  transition: 0.3s ease;
+  /* OTIMIZAÇÃO: específico — transform, border-color e box-shadow animam no hover */
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
 
@@ -913,14 +933,25 @@ main {
 
   overflow: hidden;
 
-  transition: all 0.4s ease;
+  /* OTIMIZAÇÃO: 'transition: all' monitorava ~300 propriedades CSS.
+     Aqui só 3 propriedades realmente mudam no hover. */
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 
-  backdrop-filter: blur(14px);
+  /* OTIMIZAÇÃO: backdrop-filter: blur(14px) removido do card.
+     Era o maior causador de lag: o browser recalcula o desfoque
+     de tudo que está atrás do card a cada frame do hover/transform.
+     Com translate(-12px) no hover, isso causava recompositing constante.
+     O visual premium é mantido pelo glassmorphism leve das seções de fundo. */
 
   box-shadow:
     0 10px 30px rgba(0,0,0,0.25);
 
   cursor: pointer;
+
+  /* OTIMIZAÇÃO: promove o card para camada GPU própria antes do hover acontecer,
+     eliminando o "pop" de compositing na primeira interação */
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 /* Hover premium */
@@ -1012,7 +1043,8 @@ main {
 
   font-weight: 500;
 
-  transition: 0.3s ease;
+  /* OTIMIZAÇÃO: específico — background e transform animam no hover */
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 /* Hover */
@@ -1046,7 +1078,8 @@ main {
 
   font-weight: 500;
 
-  transition: all 0.3s ease;
+  /* OTIMIZAÇÃO: específico — transform, border-color e background são as únicas propriedades que mudam */
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
 }
 
 /* Hover */
@@ -1121,7 +1154,8 @@ main {
 
   color: var(--text-primary);
 
-  transition: 0.3s ease;
+  /* OTIMIZAÇÃO: só color muda no hover */
+  transition: color 0.3s ease;
 }
 
 /* Hover */
@@ -1158,7 +1192,8 @@ main {
 
   outline: none;
 
-  transition: 0.3s ease;
+  /* OTIMIZAÇÃO: só border-color e box-shadow mudam no focus */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Focus */
@@ -1188,60 +1223,13 @@ main {
 
 /* ===== ANIMAÇÕES ===== */
 
-/* Fade para cima */
-@keyframes fadeUp {
-
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Fade esquerda */
-@keyframes fadeLeft {
-
-  from {
-    opacity: 0;
-    transform: translateX(-40px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Fade direita */
-@keyframes fadeRight {
-
-  from {
-    opacity: 0;
-    transform: translateX(40px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Elementos animados */
-.animate-item {
-  animation: fadeUp 1s ease forwards;
-}
-
-.animate-left {
-  animation: fadeLeft 1s ease forwards;
-}
-
-.animate-right {
-  animation: fadeRight 1s ease forwards;
-}
+/* OTIMIZAÇÃO — CONFLITO REMOVIDO:
+   Os @keyframes fadeUp/Left/Right e as regras animation: abaixo foram removidos.
+   Eles entravam em conflito direto com o sistema de scroll do JS:
+   - O CSS disparava a animação imediatamente no carregamento (ignorando o scroll)
+   - O JS tentava adicionar .active, mas a animation já havia rodado e terminado com forwards
+   - Resultado: elementos animavam fora de sincronia, causando piscar e lag
+   O controle de animação agora pertence exclusivamente ao JS via .active (acima). */
 
 /* Scroll suave entre seções */
 html {
@@ -1357,7 +1345,8 @@ html {
 
   font-size: 1.4rem;
 
-  transition: all 0.3s ease;
+  /* OTIMIZAÇÃO: específico — sem 'all', só o que muda no hover */
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 
   box-shadow: 0 0 15px rgba(59,130,246,0.15);
 }
