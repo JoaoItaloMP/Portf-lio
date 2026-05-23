@@ -218,29 +218,62 @@ main {
   box-shadow: 0 0 30px rgba(59,130,246,0.35);
 }
 
-/* Menu mobile escondido */
-.mobile-menu,
+/* === MENU MOBILE — BASE ===
+   O botão hambúrguer e o menu ficam ocultos por padrão (desktop).
+   No breakpoint mobile (≤768px), eles são ativados via media query abaixo. */
 .mobile-menu-btn {
-  display: none;
+  display: none; /* escondido no desktop */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  transition: color 0.3s ease;
+}
+
+.mobile-menu-btn:hover {
+  color: var(--primary-color);
 }
 
 .mobile-menu {
-  display: none;
-  background: #0f172a;
-  padding: 20px;
+  display: none; /* escondido por padrão */
+  background: rgba(5, 10, 20, 0.97);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 20px 0 24px;
 }
 
 .mobile-menu.active {
   display: block;
 }
 
+.mobile-menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 20px;
+}
+
 .mobile-nav-link {
   display: block;
-  margin-bottom: 10px;
+  width: 100%;
+  text-align: left;
+  padding: 14px 16px;
   background: none;
   border: none;
-  color: white;
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.mobile-nav-link:hover {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--primary-color);
 }
 
 /* Botão fixo no canto inferior direito */
@@ -510,65 +543,317 @@ main {
   z-index: 1; /* fica atrás da imagem */
 }
 
-/* ===== RESPONSIVIDADE ===== */
+/* ===================================================
+   RESPONSIVIDADE MOBILE — ≤ 768px
+   Foco: proporções, espaçamentos, legibilidade,
+   navegação e distribuição visual em telas pequenas.
+=================================================== */
 @media (max-width: 768px) {
 
-  /* Empilha os elementos (vertical) */
-  .hero-content {
-    flex-direction: column;
-    text-align: center;
+  /* ----- CONTAINER ----- */
+  /* Reduz margens laterais para dar mais espaço ao conteúdo */
+  .container {
+    width: 92%;
   }
 
-  /* Ajusta texto */
-  .hero-text h1 {
-    font-size: 2.5rem;
-  }
-
-  .hero-text h2 {
-    font-size: 1.5rem;
-  }
-
-  /* Centraliza botões */
-  .hero-buttons {
+  /* ----- NAVBAR ----- */
+  /* Exibe o botão hambúrguer e oculta os links desktop */
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
     justify-content: center;
   }
 
-  /* Diminui imagem */
+  /* Oculta links centrais e botão contato no mobile */
+  .nav-links,
+  .nav-contact-btn {
+    display: none;
+  }
+
+  /* ----- SEÇÕES — PADDING VERTICAL ----- */
+  /* Reduz o padding excessivo de 120px das seções no mobile */
+  .about-section,
+  .skills-section,
+  .projects-section,
+  .contact-section {
+    padding: 70px 0;
+  }
+
+  /* ----- TÍTULOS DAS SEÇÕES ----- */
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 45px;
+  }
+
+  /* ----- HERO SECTION ----- */
+  /* Empilha em coluna, imagem acima do texto */
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 36px; /* era 80px — excessivo para mobile */
+  }
+
+  /* Reordena: imagem acima do texto */
+  .hero-image {
+    order: -1;
+    padding: 0; /* remove o padding de 40px que sobrava */
+  }
+
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-text h2 {
+    font-size: 1.35rem;
+    margin: 10px 0;
+  }
+
+  /* Remove max-width para usar toda a largura disponível */
+  .hero-text p {
+    max-width: 100%;
+    margin: 16px 0;
+    font-size: 0.95rem;
+  }
+
+  /* Centraliza botões e permite quebra de linha */
+  .hero-buttons {
+    justify-content: center;
+    gap: 14px;
+    margin-top: 22px;
+    flex-wrap: wrap;
+  }
+
+  /* Padding dos botões mais enxuto */
+  .primary-btn,
+  .outline-btn {
+    padding: 14px 28px;
+    font-size: 0.95rem;
+  }
+
+  /* Centraliza ícones sociais no hero */
+  .social-links {
+    justify-content: center;
+    margin-top: 22px;
+  }
+
+  /* Imagem do hero proporcionalmente menor */
   .image-container img {
-    width: 250px;
+    width: 200px;
+    height: 200px;
   }
 
   .image-container::before {
-    width: 280px;
-    height: 280px;
+    width: 230px;
+    height: 230px;
   }
 
+  /* ----- ABOUT SECTION ----- */
+  /* Empilha e reduz gap excessivo de 60px */
   .about-content {
     flex-direction: column;
+    gap: 36px;
   }
 
+  .about-text h3 {
+    font-size: 1.6rem;
+  }
+
+  /* 2 colunas nos cards de habilidades no tablet */
+  .about-features {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  /* Reduz padding interno dos feature cards */
+  .feature-card {
+    padding: 22px 18px;
+  }
+
+  /* ----- SKILLS SECTION ----- */
+  /* !important necessário: a regra desktop .skills-content está declarada
+     DEPOIS desta media query no arquivo, ganhando na cascata por ordem de fonte.
+     O !important garante que o grid colapse para 1 coluna no mobile. */
+  .skills-content {
+    grid-template-columns: 1fr !important;
+    gap: 24px;
+    margin-top: 30px;
+  }
+
+  /* Largura total + padding mais enxuto */
+  .technical-skills,
+  .technologies {
+    width: 100%;
+    padding: 26px 22px;
+  }
+
+  .technical-skills h3,
+  .technologies h3 {
+    font-size: 1.6rem;
+    margin-bottom: 22px;
+  }
+
+  /* Tech grid: mantém 2 colunas com cards menores */
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .tech-card {
+    min-height: 90px;
+    padding: 16px 12px;
+    border-radius: 14px;
+  }
+
+  /* ----- PROJECTS SECTION ----- */
+  /* Uma coluna, minmax reduzido para evitar overflow */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .project-image img {
+    height: 200px;
+  }
+
+  .project-content {
+    padding: 24px 22px;
+  }
+
+  /* ----- CONTACT SECTION ----- */
+  /* Empilha info + formulário, reduz gap */
+  .contact-content {
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  .contact-info h3 {
+    font-size: 1.6rem;
+  }
+
+  /* ----- SCROLL TO TOP BTN ----- */
+  .scroll-top-btn {
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 13px;
+  }
+}
+
+/* ===================================================
+   RESPONSIVIDADE MOBILE — ≤ 480px
+   Foco: telas muito pequenas (iPhone SE, Galaxy A série)
+=================================================== */
+@media (max-width: 480px) {
+
+  .container {
+    width: 94%;
+  }
+
+  /* ----- SEÇÕES ----- */
+  .about-section,
+  .skills-section,
+  .projects-section,
+  .contact-section {
+    padding: 55px 0;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+    margin-bottom: 36px;
+  }
+
+  /* ----- HERO ----- */
+  .hero-text h1 {
+    font-size: 1.9rem;
+  }
+
+  .hero-text h2 {
+    font-size: 1.2rem;
+  }
+
+  /* Botões empilhados e centralizados nas telas pequenas */
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .primary-btn,
+  .outline-btn {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+  }
+
+  .image-container img {
+    width: 170px;
+    height: 170px;
+  }
+
+  .image-container::before {
+    width: 200px;
+    height: 200px;
+  }
+
+  /* ----- ABOUT ----- */
+  /* 1 coluna nos feature cards em telas muito pequenas */
   .about-features {
     grid-template-columns: 1fr;
   }
 
-  /* Em mobile, empilha verticalmente para melhor leitura */
-.skills-content {
-  grid-template-columns: 1fr;
-  gap: 30px;
-  margin-top: 40px;
-}
-
-  /* Garante que o card de skills preencha o espaço em mobile */
-  .technical-skills {
-    width: 100%;
+  .about-text h3,
+  .contact-info h3 {
+    font-size: 1.45rem;
   }
 
-  .tech-grid {
-    grid-template-columns: repeat(2, 1fr);
+  /* ----- SKILLS ----- */
+  .technical-skills,
+  .technologies {
+    padding: 22px 18px;
   }
 
-   .contact-content {
+  .tech-card {
+    min-height: 80px;
+    padding: 14px 10px;
+  }
+
+  .tech-card i {
+    font-size: 2rem;
+  }
+
+  /* ----- PROJECTS ----- */
+  .project-content {
+    padding: 20px 18px;
+  }
+
+  .project-image img {
+    height: 180px;
+  }
+
+  /* Botões do card de projeto empilhados */
+  .project-links {
     flex-direction: column;
+    gap: 10px;
+  }
+
+  .project-btn {
+    text-align: center;
+    padding: 12px 16px;
+  }
+
+  /* ----- CONTACT FORM ----- */
+  .contact-form input,
+  .contact-form textarea {
+    padding: 14px 16px;
+    font-size: 0.95rem;
+  }
+
+  /* ----- SOCIAL LINKS ----- */
+  .social-links a {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    border-radius: 14px;
   }
 }
 
