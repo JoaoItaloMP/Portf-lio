@@ -27,11 +27,15 @@
 
 /* ===== CONFIGURAÇÃO GLOBAL ===== */
 body {
-  font-family: 'Inter', sans-serif; /* fonte moderna */
+  /* TIPOGRAFIA: Plus Jakarta Sans substitui Inter — visual mais sofisticado, mesma leitura */
+  font-family: 'Plus Jakarta Sans', sans-serif;
   background-color: var(--bg-dark);
   color: var(--text-primary);
 
-  line-height: 1.6; /* melhora leitura */
+  font-size: 16px;           /* base explícita para escala consistente */
+  line-height: 1.6;
+  /* TIPOGRAFIA: kerning global levemente negativo — toque premium em fontes geométricas */
+  letter-spacing: -0.01em;
 }
 
 /* Remove decoração padrão de links */
@@ -106,7 +110,11 @@ main {
 
   font-size: 1.6rem;
 
-  font-weight: 700;
+  /* TIPOGRAFIA: 800 dá mais presença e identidade à marca */
+  font-weight: 800;
+
+  /* TIPOGRAFIA: tracking negativo — padrão de wordmarks premium */
+  letter-spacing: -0.03em;
 
   color: white;
 
@@ -137,17 +145,19 @@ main {
 
   color: white;
 
-  font-size: 0.95rem;
+  /* TIPOGRAFIA: 0.9rem mais refinado que 0.95rem para itens de nav */
+  font-size: 0.9rem;
 
-  font-weight: 600;
+  /* TIPOGRAFIA: 500 — peso ideal para nav, nem pesado demais nem leve */
+  font-weight: 500;
 
-  letter-spacing: 0.3px;
+  /* TIPOGRAFIA: tracking leve positivo em nav melhora leitura de itens em maiúsc/caps */
+  letter-spacing: 0.02em;
 
   cursor: pointer;
 
   position: relative;
 
-  /* OTIMIZAÇÃO: transition específica em vez de 'all' */
   transition: color 0.3s ease;
 }
 
@@ -190,13 +200,17 @@ main {
 
   text-decoration: none;
 
-  font-size: 0.95rem;
+  /* TIPOGRAFIA: 0.85rem mais sofisticado em CTAs de navbar */
+  font-size: 0.85rem;
 
-  font-weight: 600;
+  /* TIPOGRAFIA: 700 em botões CTAs — comunica ação com clareza */
+  font-weight: 700;
+
+  /* TIPOGRAFIA: tracking positivo em botões realça o label */
+  letter-spacing: 0.03em;
 
   color: white;
 
-  /* Mesmo degradê */
   background: linear-gradient(
     90deg,
     #1d4ed8 0%,
@@ -204,7 +218,6 @@ main {
     #60a5fa 100%
   );
 
-  /* OTIMIZAÇÃO: só anima transform e box-shadow — as propriedades que realmente mudam no hover */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   box-shadow: 0 0 20px rgba(59,130,246,0.25);
@@ -371,9 +384,12 @@ main {
 
 /* Nome principal com mais impacto visual */
 .hero-text h1 {
-  font-size: 3.5rem; /* maior destaque */
-  font-weight: 700;
-  line-height: 1.2; /* evita espaçamento estranho */
+  /* TIPOGRAFIA: 3.8rem + weight 800 + tracking negativo = presença máxima de headline */
+  font-size: 3.8rem;
+  font-weight: 800;
+  /* TIPOGRAFIA: -0.03em é o padrão de headlines premium (Apple, Vercel, Linear) */
+  letter-spacing: -0.03em;
+  line-height: 1.1; /* linhas mais juntas = mais impacto visual em títulos grandes */
 }
 
 /* Nome em azul com destaque */
@@ -383,8 +399,12 @@ main {
 
 /* Cargo */
 .hero-text h2 {
-  font-size: 1.8rem;
-  margin: 15px 0;
+  /* TIPOGRAFIA: 1.6rem — cargo deve ser claramente menor que o nome */
+  font-size: 1.6rem;
+  font-weight: 600;
+  /* TIPOGRAFIA: tracking levemente negativo mantém coerência com h1 */
+  letter-spacing: -0.02em;
+  margin: 18px 0;
   color: var(--text-secondary);
 }
 
@@ -393,7 +413,12 @@ main {
   margin: 25px 0;
   color: var(--text-secondary);
   max-width: 520px;
+  /* TIPOGRAFIA: 1rem com line-height 1.8 = texto corpo perfeito para leitura confortável */
   font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.8;
+  /* TIPOGRAFIA: letra ligeiramente espaçada no corpo melhora legibilidade em dark mode */
+  letter-spacing: 0.01em;
 }
 
 /* ===== BOTÕES ===== */
@@ -423,7 +448,6 @@ main {
 
   border-radius: 999px;
 
-  /* Degradê azul */
   background: linear-gradient(
     90deg,
     #1d4ed8 0%,
@@ -433,13 +457,13 @@ main {
 
   color: white;
 
-  font-size: 1rem;
-
-  font-weight: 600;
+  /* TIPOGRAFIA: 0.95rem + 700 + tracking positivo = CTA com presença e clareza */
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 
   cursor: pointer;
 
-  /* OTIMIZAÇÃO: só as propriedades que animam no hover — transform e box-shadow são GPU-friendly */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   box-shadow: 0 0 20px rgba(59,130,246,0.25);
@@ -465,16 +489,15 @@ main {
 
   background: transparent;
 
-  /* Texto azul igual borda */
   color: var(--primary-color);
 
-  font-weight: 600;
-
-  font-size: 1rem;
+  /* TIPOGRAFIA: espelha o primary-btn para consistência visual */
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
 
   cursor: pointer;
 
-  /* OTIMIZAÇÃO: específico — evita monitorar todas as propriedades */
   transition: background 0.3s ease, transform 0.3s ease;
 }
 
@@ -581,7 +604,8 @@ main {
 
   /* ----- TÍTULOS DAS SEÇÕES ----- */
   .section-title {
-    font-size: 2rem;
+    font-size: 1.9rem;
+    /* TIPOGRAFIA mobile: mantém tracking negativo e weight 800 do desktop */
     margin-bottom: 45px;
   }
 
@@ -655,7 +679,8 @@ main {
   }
 
   .about-text h3 {
-    font-size: 1.6rem;
+    /* TIPOGRAFIA mobile: proporcional ao novo tamanho base */
+    font-size: 1.5rem;
   }
 
   /* 2 colunas nos cards de habilidades no tablet */
@@ -688,7 +713,8 @@ main {
 
   .technical-skills h3,
   .technologies h3 {
-    font-size: 1.6rem;
+    /* TIPOGRAFIA mobile: escala proporcional ao novo tamanho */
+    font-size: 1.35rem;
     margin-bottom: 22px;
   }
 
@@ -907,7 +933,11 @@ main {
 
 /* Títulos principais das seções */
 .section-title {
+  /* TIPOGRAFIA: 2.5rem + 800 + tracking negativo = autoridade visual de seção */
   font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
   text-align: center;
 
   margin-bottom: 60px;
@@ -950,7 +980,11 @@ main {
 
 /* Subtítulo */
 .about-text h3 {
-  font-size: 2rem;
+  /* TIPOGRAFIA: 700 + tracking negativo = subtítulo de seção com peso correto */
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
   margin-bottom: 20px;
 }
 
@@ -959,7 +993,11 @@ main {
   color: var(--text-secondary);
   margin-bottom: 20px;
 
-  line-height: 1.8;
+  /* TIPOGRAFIA: line-height 1.85 é o ideal para parágrafos em dark mode — mais respiro */
+  line-height: 1.85;
+  font-size: 0.975rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
 /* Grid dos cards */
@@ -981,10 +1019,26 @@ main {
   padding: 30px;
   border-radius: 20px;
 
-  /* OTIMIZAÇÃO: específico — transform, border-color e box-shadow são as propriedades que animam */
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 
   backdrop-filter: blur(10px);
+}
+
+/* TIPOGRAFIA: h4 dos cards com peso e tracking para hierarquia clara */
+.feature-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+/* TIPOGRAFIA: parágrafo do card — menor e mais leve, hierarquicamente abaixo do h4 */
+.feature-card p {
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--text-secondary);
 }
 
 /* Hover do card */
@@ -1061,7 +1115,11 @@ main {
 /* Títulos internos */
 .technical-skills h3,
 .technologies h3 {
-  font-size: 2rem;
+  /* TIPOGRAFIA: 700 + tracking negativo — títulos de bloco com autoridade, sem exagero */
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
   margin-bottom: 30px;
 }
 
@@ -1077,7 +1135,10 @@ main {
 
   margin-bottom: 10px;
 
-  font-weight: 500;
+  /* TIPOGRAFIA: 600 + size reduzido = labels de skill precisos e clean */
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.01em;
 }
 
 /* Fundo da barra — mais refinado com borda sutil */
@@ -1183,7 +1244,10 @@ main {
 
 /* Nome da tecnologia */
 .tech-card span {
-  font-weight: 500;
+  /* TIPOGRAFIA: 600 + size menor = label de tech card preciso */
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.01em;
 }
 
 /* ===== PROJECTS SECTION ===== */
@@ -1285,18 +1349,24 @@ main {
 /* Nome do projeto */
 .project-content h3 {
 
-  font-size: 1.6rem;
+  /* TIPOGRAFIA: 800 + tracking negativo = título de projeto com máximo impacto */
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
 
-  margin-bottom: 16px;
-
-  font-weight: 700;
+  margin-bottom: 12px;
 }
 
 /* Texto */
 .project-content p {
   color: var(--text-secondary);
 
-  line-height: 1.7;
+  /* TIPOGRAFIA: 0.9rem + line-height 1.75 = descrição de projeto legível e elegante */
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
 
   margin-bottom: 20px;
 }
@@ -1320,15 +1390,15 @@ main {
 
   color: #60a5fa;
 
-  padding: 10px 16px;
+  padding: 8px 14px;
 
   border-radius: 999px;
 
-  font-size: 0.85rem;
+  /* TIPOGRAFIA: 0.78rem + 600 + tracking = tags compactas e limpas */
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
 
-  font-weight: 500;
-
-  /* OTIMIZAÇÃO: específico — background e transform animam no hover */
   transition: background 0.3s ease, transform 0.3s ease;
 }
 
@@ -1361,9 +1431,11 @@ main {
 
   color: var(--text-primary);
 
-  font-weight: 500;
+  /* TIPOGRAFIA: 600 + 0.85rem + tracking = botão de ação secundário preciso */
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
 
-  /* OTIMIZAÇÃO: específico — transform, border-color e background são as únicas propriedades que mudam */
   transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
 }
 
@@ -1411,7 +1483,11 @@ main {
 }
 
 .contact-info h3 {
-  font-size: 2rem;
+  /* TIPOGRAFIA: consistência com outros subtítulos de seção */
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
   margin-bottom: 20px;
 }
 
@@ -1419,7 +1495,11 @@ main {
   color: var(--text-secondary);
   margin-bottom: 30px;
 
-  line-height: 1.8;
+  /* TIPOGRAFIA: espelha o padrão de parágrafos de seção */
+  line-height: 1.85;
+  font-size: 0.975rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
 /* Links */
@@ -1473,11 +1553,16 @@ main {
 
   color: var(--text-primary);
 
-  font-size: 1rem;
+  /* TIPOGRAFIA: 0.95rem + 400 + line-height — inputs confortáveis para digitação */
+  font-size: 0.95rem;
+  font-weight: 400;
+  /* TIPOGRAFIA: herança da fonte global necessária para inputs em alguns browsers */
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
 
   outline: none;
 
-  /* OTIMIZAÇÃO: só border-color e box-shadow mudam no focus */
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -1504,6 +1589,10 @@ main {
 /* Texto */
 .footer p {
   color: var(--text-secondary);
+  /* TIPOGRAFIA: 0.875rem + 500 + tracking leve = rodapé discreto e refinado */
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
 }
 
 /* ===== ANIMAÇÕES ===== */
